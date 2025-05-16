@@ -1,7 +1,7 @@
 # adblock_processor/config.py
 import configparser
 import os
-from .utils.exceptions import ConfigError
+from utils.exceptions import ConfigError
 
 DEFAULT_CONFIG = {
     'settings': {
