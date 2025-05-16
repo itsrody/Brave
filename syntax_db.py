@@ -2,7 +2,7 @@
 import json
 import os
 import re
-from .utils.exceptions import SyntaxDBError
+from utils.exceptions import SyntaxDBError
 
 class SyntaxDB:
     """
