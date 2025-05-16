@@ -1,7 +1,7 @@
 # adblock_processor/translator.py
-from .syntax_db import SyntaxDB
-from .utils.logger import setup_logger
-from .utils.exceptions import TranslationError
+from syntax_db import SyntaxDB
+from utils.logger import setup_logger
+from utils.exceptions import TranslationError
 
 # logger = setup_logger('translator_module') # Assuming logger is set up in main
 
