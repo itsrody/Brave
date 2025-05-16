@@ -2,8 +2,8 @@
 import asyncio
 import aiohttp
 import time
-from .utils.logger import setup_logger
-from .utils.exceptions import DownloadError
+from utils.logger import setup_logger
+from utils.exceptions import DownloadError
 
 # Assuming logger is set up in main or passed around
 # For standalone testing:
