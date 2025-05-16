@@ -1,0 +1,25 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+.env
+.venv/
+venv/
+ENV/
+env/
+pip-wheel-metadata/
+
+# IDE / Editor specific
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Adblock Processor Specific
+data/ # If you store raw downloaded lists here temporarily
+*.log # If you don't want to commit log files (optional, you might want to commit them)
+# output/ # If you only want the action to generate it and not have a placeholder in repo
+
+# macOS
+.DS_Store
