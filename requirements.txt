@@ -1,0 +1,9 @@
+# Core dependency for asynchronous HTTP requests
+aiohttp
+
+# configparser is part of the Python standard library for versions 3.2+
+# If you need to support older Python versions or want to be explicit, you can add it.
+# For this project, assuming Python 3.7+ as used by GitHub Actions default images.
+
+# Add other dependencies if your validator/translator grows to need them, e.g.:
+# PyYAML  # If you switch config.ini to config.yaml
