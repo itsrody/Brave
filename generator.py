@@ -1,8 +1,8 @@
 # adblock_processor/generator.py
 import datetime
 import os
-from .utils.logger import setup_logger
-from .utils.exceptions import GenerationError
+from utils.logger import setup_logger
+from utils.exceptions import GenerationError
 
 # logger = setup_logger('generator_module') # Assuming logger is set up in main
 
