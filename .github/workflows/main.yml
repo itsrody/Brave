@@ -30,7 +30,7 @@ jobs:
         run: pip install -r requirements.txt
 
       - name: Run Adblock Processor
-        run: python -m main.py # Assumes your main script is executable this way
+        run: python -m main # Assumes your main script is executable this way
                                             # Ensure config.ini is present and configured.
                                             # Output file path in config.ini should be relative to repo root e.g. output/unified_brave_list.txt
 
