@@ -1,7 +1,7 @@
 # adblock_processor/parser.py
 import re
-from .utils.logger import setup_logger
-from .utils.exceptions import ParsingError
+from utils.logger import setup_logger
+from utils.exceptions import ParsingError
 
 # logger = setup_logger('parser_module') # Assuming logger is set up in main
 
