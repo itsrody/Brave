@@ -1,7 +1,7 @@
 # adblock_processor/validator.py
-from .syntax_db import SyntaxDB
-from .utils.logger import setup_logger
-from .utils.exceptions import ValidationError
+from syntax_db import SyntaxDB
+from utils.logger import setup_logger
+from utils.exceptions import ValidationError
 
 # logger = setup_logger('validator_module') # Assuming logger is set up in main
 
