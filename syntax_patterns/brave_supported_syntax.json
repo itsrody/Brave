@@ -1,0 +1,114 @@
+[
+  {
+    "name": "Basic Network Rule - Domain Anchor",
+    "category": "network_structure",
+    "pattern_regex": "^\\|\\|([a-zA-Z0-9.-]+(?:\\:[0-9]+)?)\\^?(?:\\$(.+))?$",
+    "supported_in_brave": "yes",
+    "notes": "Matches ||domain.com^ or ||domain.com:port^ with optional options. Brave supports ABP base syntax."
+  },
+  {
+    "name": "Basic Network Rule - Path",
+    "category": "network_structure",
+    "pattern_regex": "^(?!.*##)([^$!#\\s]+?)(?:\\$(.+))?$",
+    "supported_in_brave": "yes",
+    "notes": "Matches /ad.js or example.com/ads.js with optional options. Excludes cosmetic rules."
+  },
+  {
+    "name": "Network Exception Rule",
+    "category": "network_structure",
+    "pattern_regex": "^@@(\\|\\|([a-zA-Z0-9.-]+(?:\\:[0-9]+)?)\\^?|[^$!#\\s]+?)(?:\\$(.+))?$",
+    "supported_in_brave": "yes",
+    "notes": "Matches @@||domain.com^ or @@/script.js. Brave supports ABP exceptions."
+  },
+  {
+    "name": "Cosmetic Rule - Element Hiding",
+    "category": "cosmetic_structure",
+    "pattern_regex": "^([^#]*?)##(.+)$",
+    "supported_in_brave": "yes",
+    "notes": "Matches domain.com##selector or ##selector. Brave supports this."
+  },
+  {
+    "name": "Cosmetic Exception Rule",
+    "category": "cosmetic_structure",
+    "pattern_regex": "^([^#]*?)#@#(.+)$",
+    "supported_in_brave": "yes",
+    "notes": "Matches domain.com#@#selector or #@#selector. Brave supports this."
+  },
+  {
+    "name": "uBO HTML Filtering Rule",
+    "category": "cosmetic_structure",
+    "pattern_regex": "^([^#]*?)##\\^(.+)$",
+    "supported_in_brave": "yes",
+    "notes": "Matches domain.com##^selector. Brave's adblock-rust aims for uBO compatibility, including HTML filtering. Verify specific support level in adblock-rust docs/issues if problems arise."
+  },
+  {
+    "name": "uBO/Brave Scriptlet Injection",
+    "category": "scriptlet",
+    "pattern_regex": "^([^#]*?)##\\+js\\((.+?)\\)$",
+    "supported_in_brave": "yes",
+    "notes": "Matches domain.com##+js(scriptlet_name, args). Brave supports uBO scriptlet syntax and custom scriptlets."
+  },
+  {
+    "name": "Modifier - $script",
+    "category": "modifier",
+    "token": "$script",
+    "supported_in_brave": "yes",
+    "notes": "Restricts rule to script requests."
+  },
+  {
+    "name": "Modifier - $image",
+    "category": "modifier",
+    "token": "$image",
+    "supported_in_brave": "yes",
+    "notes": "Restricts rule to image requests."
+  },
+  {
+    "name": "Modifier - $third-party",
+    "category": "modifier",
+    "token": "$third-party",
+    "supported_in_brave": "yes",
+    "notes": "Applies to third-party requests."
+  },
+  {
+    "name": "Modifier - $domain",
+    "category": "modifier",
+    "pattern_regex": "\\$domain=([^,]+)",
+    "supported_in_brave": "yes",
+    "notes": "Restricts rule to specified domains. Brave supports this uBO syntax."
+  },
+  {
+    "name": "Modifier - $removeparam",
+    "category": "modifier",
+    "pattern_regex": "\\$removeparam=([^,]+)",
+    "supported_in_brave": "yes",
+    "notes": "Removes URL parameters. Brave's adblock-rust supports this."
+  },
+  {
+    "name": "Modifier - $redirect (uBO)",
+    "category": "modifier",
+    "pattern_regex": "\\$redirect=([^,]+)",
+    "supported_in_brave": "yes",
+    "notes": "Redirects requests. Brave's adblock-rust supports uBO redirect rules, including for SugarCoat."
+  },
+  {
+    "name": "Modifier - $csp (uBO)",
+    "category": "modifier",
+    "pattern_regex": "\\$csp=([^,]+)",
+    "supported_in_brave": "yes",
+    "notes": "Injects Content Security Policy. adblock-rust has CSP directive support."
+  },
+  {
+    "name": "Procedural Cosmetic - :has-text() (uBO)",
+    "category": "procedural_cosmetic",
+    "pattern_regex": ":has-text\\(([^)]+)\\)",
+    "supported_in_brave": "yes",
+    "notes": "Selects element containing text. Brave supports uBO's :has-text()."
+  },
+  {
+    "name": "Procedural Cosmetic - :style() (uBO CSS Injection)",
+    "category": "procedural_cosmetic",
+    "pattern_regex": ":style\\(([^)]+)\\)",
+    "supported_in_brave": "yes",
+    "notes": "Injects CSS styles. Brave supports uBO's :style() for CSS injection."
+  }
+]
