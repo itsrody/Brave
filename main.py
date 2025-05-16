@@ -5,15 +5,15 @@ import os
 import concurrent.futures
 from functools import partial
 
-from .config import AppConfig
-from .utils.logger import setup_logger
-from .utils.exceptions import AdblockProcessorError
-from .downloader import Downloader
-from .parser import RuleParser
-from .syntax_db import SyntaxDB
-from .validator import RuleValidator
-from .translator import RuleTranslator
-from .generator import ListGenerator
+from config import AppConfig
+from utils.logger import setup_logger
+from utils.exceptions import AdblockProcessorError
+from downloader import Downloader
+from parser import RuleParser
+from syntax_db import SyntaxDB
+from validator import RuleValidator
+from translator import RuleTranslator
+from generator import ListGenerator
 
 # Global logger instance, configured after AppConfig is loaded
 logger = None
