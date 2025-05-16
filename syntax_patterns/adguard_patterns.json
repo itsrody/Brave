@@ -1,0 +1,55 @@
+[
+  {
+    "name": "AdGuard Extended Cosmetic - #?#",
+    "source_type": "AdGuard",
+    "pattern_regex": "^(?P<domains>[^#]*)#\\?#(?P<selector>.+?)(?::(?P<pseudo_class>[a-zA-Z-]+(?:\\((?:[^()\"']|\"[^\"]*\"|'[^']*')*\\))?))?$",
+    "supported_in_brave": "partial_translation_available",
+    "brave_equivalent_template": null,
+    "notes": "AdGuard extended CSS. Specific pseudo-classes like :contains() need individual translation rules. General #?# might map to ## if no special pseudo-class."
+  },
+  {
+    "name": "AdGuard :contains()",
+    "source_type": "AdGuard",
+    "pattern_regex": "^(?P<domains>[^#]*)#\\?#(?P<selector>.+?):contains\\((?P<argument>(?:[^()\"']|\"[^\"]*\"|'[^']*')*)\\)$",
+    "supported_in_brave": "needs_translation",
+    "brave_equivalent_template": "{domains}##{selector}:has-text({argument})",
+    "notes": "Translates AdGuard's #?#selector:contains(text) to uBO/Brave ##selector:has-text(text). Assumes text argument."
+  },
+  {
+    "name": "AdGuard CSS Injection - #$#",
+    "source_type": "AdGuard",
+    "pattern_regex": "^(?P<domains>[^#]*)#\\$#(?P<selector>.+?)\\{(?P<styles>.+?)\\}$",
+    "supported_in_brave": "needs_translation",
+    "brave_equivalent_template": "{domains}##{selector}:style({styles})",
+    "notes": "Translates AdGuard's #$#selector { style } to uBO/Brave ##selector:style(style). Ensure style formatting is compatible."
+  },
+  {
+    "name": "AdGuard Scriptlet - #%#//scriptlet()",
+    "source_type": "AdGuard",
+    "pattern_regex": "^(?P<domains>[^#]*)#%#//scriptlet\\((?P<name>[^,)]+)(?:,\\s*(?P<args>.+))?\\)$",
+    "supported_in_brave": "needs_translation",
+    "brave_equivalent_template": "{domains}##+js({name}{args_formatted})",
+    "notes": "Translates AdGuard scriptlets to uBO/Brave ##+js(). Argument formatting might need adjustment. `args_formatted` would need to be handled by translator logic to add leading comma if args exist."
+  },
+  {
+    "name": "AdGuard Modifier - $app",
+    "source_type": "AdGuard",
+    "pattern_regex": "\\$app=([^,]+)",
+    "supported_in_brave": "no",
+    "notes": "AdGuard specific modifier for application-level filtering. No direct Brave equivalent for browser filtering."
+  },
+  {
+    "name": "AdGuard Modifier - $replace",
+    "source_type": "AdGuard",
+    "pattern_regex": "\\$replace=([^,]+)",
+    "supported_in_brave": "no",
+    "notes": "AdGuard specific modifier for response body modification. Brave uses $redirect for resource replacement or scriptlets for more complex DOM/JS changes. No direct 1:1 translation for general $replace."
+  },
+  {
+    "name": "AdGuard Modifier - $cookie",
+    "source_type": "AdGuard",
+    "pattern_regex": "\\$cookie=([^,]+)",
+    "supported_in_brave": "no",
+    "notes": "AdGuard specific modifier for cookie manipulation. Brave would require scriptlets for similar functionality."
+  }
+]
