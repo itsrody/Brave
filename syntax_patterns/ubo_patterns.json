@@ -1,0 +1,52 @@
+[
+  {
+    "name": "uBO Pre-processing Directive - !#if",
+    "source_type": "uBlockOrigin",
+    "pattern_regex": "^!#if\\s+(.+)$",
+    "supported_in_brave": "no",
+    "notes": "uBlock Origin pre-processing directive. adblock-rust does not support these. Rules within these blocks might be ignored or need manual handling/conditional inclusion by the processor if logic is added."
+  },
+  {
+    "name": "uBO Pre-processing Directive - !#include",
+    "source_type": "uBlockOrigin",
+    "pattern_regex": "^!#include\\s+(.+)$",
+    "supported_in_brave": "no",
+    "notes": "uBlock Origin pre-processing directive. adblock-rust does not support !#include. The processor would need to handle fetching and inlining these lists if this functionality is desired."
+  },
+  {
+    "name": "uBO Modifier - $denyallow",
+    "source_type": "uBlockOrigin",
+    "pattern_regex": "\\$denyallow=([^,]+)",
+    "supported_in_brave": "partial_translation_available", 
+    "brave_equivalent_template": null,
+    "notes": "uBO specific. Brave's adblock-rust may not fully support $denyallow as in uBO. $csp rules might be an alternative. Translation is complex and context-dependent, likely requiring commenting out or manual review."
+  },
+  {
+    "name": "uBO Procedural Cosmetic - :xpath()",
+    "source_type": "uBlockOrigin",
+    "pattern_regex": ":xpath\\(([^)]+)\\)",
+    "supported_in_brave": "yes",
+    "notes": "Selects element using XPath. Brave's adblock-rust aims for uBO compatibility. Verify specific support in adblock-rust docs/issues."
+  },
+  {
+    "name": "uBO Procedural Cosmetic - :matches-css()",
+    "source_type": "uBlockOrigin",
+    "pattern_regex": ":matches-css\\(([^)]+)\\)",
+    "supported_in_brave": "yes",
+    "notes": "Selects element if its computed style matches. Brave's adblock-rust aims for uBO compatibility."
+  },
+  {
+    "name": "uBO Procedural Cosmetic - :upward()",
+    "source_type": "uBlockOrigin",
+    "pattern_regex": ":upward\\(([^)]+)\\)",
+    "supported_in_brave": "yes",
+    "notes": "Selects an ancestor. Brave's adblock-rust aims for uBO compatibility."
+  },
+   {
+    "name": "uBO Procedural Cosmetic - :remove() (Not a standard uBO operator, but sometimes requested/confused with HTML filtering)",
+    "source_type": "uBlockOrigin",
+    "pattern_regex": ":remove\\(\\)",
+    "supported_in_brave": "no",
+    "notes": ":remove() is an AdGuard operator. uBO uses ##^ for HTML filtering to remove elements. If seen in a uBO context, it's likely a misunderstanding or a custom list aiming for AdGuard compatibility."
+  }
+]
